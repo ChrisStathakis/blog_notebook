@@ -39,8 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'notebook',
-
-    'django_tables2',
     'tinymce',
 ]
 

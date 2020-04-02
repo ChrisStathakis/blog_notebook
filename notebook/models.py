@@ -52,9 +52,6 @@ class Note(models.Model):
     def get_edit_url(self):
         return reverse('notes:note_update', kwargs={'pk': self.id})
 
-    def get_show_url(self):
-        return reverse('notes:show_note', kwargs={'pk': self.id})
-
     @staticmethod
     def filters_data(request, qs):
         q = request.GET.get('q', None)
