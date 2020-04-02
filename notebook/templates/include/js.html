@@ -1,0 +1,63 @@
+{% load static %}
+
+<!--   Core JS Files   -->
+  <script src="{% static 'assets/js/core/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/js/core/popper.min.js' %}"></script>
+  <script src="{% static 'assets/js/core/bootstrap.min.js' %}"></script>
+  <script src="{% static 'assets/js/plugins/perfect-scrollbar.jquery.min.js' %}"></script>
+
+  <!-- Chart JS -->
+  <script src="{% static 'assets/js/plugins/chartjs.min.js' %}"></script>
+  <!--  Notifications Plugin    -->
+  <script src="{% static 'assets/js/plugins/bootstrap-notify.js' %}"></script>
+  <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="{% static 'assets/js/paper-dashboard.min.js' %}" type="text/javascript"></script>
+  <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+  <script src="{% static 'assets/demo/demo.js' %}"></script>
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
+      demo.initChartsPages();
+    });
+  </script>
+<script type="text/javascript">
+    $(window).on('load',function(){
+        $('#messageModal').modal('show');
+    });
+</script>
+
+
+
+    <script type="text/javascript" src="{% static 'daterangepicker-master/moment.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'daterangepicker-master/daterangepicker.js' %}"></script>
+    <script type="text/javascript">
+        $(function() {
+            var start = moment().subtract(24, 'months');
+            var end = moment().endOf('year');
+            function cb(start, end) {
+                $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+            }
+
+            $('#reportrange').daterangepicker({
+                ranges: {
+                   'Προηγουμενοι 12 μηνες': [moment().subtract(12, 'months'), moment()],
+                   'Αυτη η χρονια': [moment().startOf('year'), moment().endOf('year')],
+                   'Προηγουμενη Χρονια': [moment().startOf('days').subtract(1,'year'),  moment().endOf('year').subtract(1, 'year')],
+
+                   'Σημερα': [moment(), moment()],
+                   'Εχτες': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                   'Προηγουμενες 7 ημερες': [moment().subtract(6, 'days'), moment()],
+                   'Προηγουμενες 30 μερες': [moment().subtract(29, 'days'), moment()],
+                   'Αυτος ο Μηνας': [moment().startOf('month'), moment().endOf('month')],
+                   'Προηγουμενος Μηνας': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                },
+                startDate:start,
+                endDate:end
+            }, cb);
+
+    cb(start, end);
+
+});
+</script>
+
+

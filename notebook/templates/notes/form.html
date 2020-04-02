@@ -1,0 +1,53 @@
+{% extends 'dashboard.html' %}  {% load render_table from django_tables2 %}
+
+{% block extra_css %}
+ {{ form.media }}
+ <style>
+    textarea.form-control{
+        max-height: 600px;
+        width:1800px;
+    }
+    #id_description {
+        max-height: 600px;
+        height:600px;
+    }
+    #id_tag {
+        max-height: 250px;
+        height:250px;
+    }
+ </style>
+ {% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <div class='card'>
+                    <div class='card-header'>
+                        <h4>{{form_title}}</h4>
+                        <!-- Large modal -->
+                        <a href="{{ back_url }}" class="btn btn-warining pull-right">Back</a>
+                    </div>
+                     <div class="card-body">
+                        <form method='post' class='form'>
+                            {% csrf_token %}
+                            {{ form }}
+                            <br />
+                            <button class='btn btn-success pull-right' type='submit'><i class='fa fa-save'></i></button> 
+                        </form>
+                     </card>
+                    
+                </div>
+            </div>
+            <div class="col-2"></div>
+        </div>
+
+
+        </div>
+
+    </div>
+
+{% endblock %}
+
+

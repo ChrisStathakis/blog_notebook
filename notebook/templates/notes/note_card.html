@@ -1,0 +1,22 @@
+<div class='col-3'>
+    <div class="card card-nav-tabs text-center" style=' border-top: 5px solid {{ note.get_color_display }};'>
+        <div class="card-header card-header-primary">
+            {% if note.pinned %}
+                <a style='color:green' href="{% url 'notes:pinned' note.id %}"><i style='color:green' class='fa fa-thumb-tack'></i></a>
+            {% else %}
+                <a href="{% url 'notes:pinned' note.id %}"><i style='color:red' class='fa fa-thumb-tack'></i></a>
+            {% endif %}
+        </div>
+        <div class="card-body">
+            <h4 class="card-title">{{ note|safe }}</h4>
+            <p class="card-text">{{ note.description|safe|truncatechars_html:50 }}</p>
+        </div>
+        <div class="card-footer text-muted">
+            {% for tag in note.tag.all %} <a href='{{ request.path }}?tag={{ tag.id }}'><i class="fa fa-tag" aria-hidden="true"></i> {{ tag }}</a>  {% empty %} No tags{% endfor %}
+            <br>
+            <p class='text-muted'>Created {{ note.timestamp}} <p>
+            <a href='{{ note.get_edit_url }}' style='color:blue' class='pull-left'><i class='fa fa-edit'> </i></a>
+            <a onclick='return confirm("Εισαι σιγουρος;")' href='{% url "notes:delete_note" note.id %}' style='color:red' class='pull-right'><i class='fa fa-trash'> </i></a>
+        </div>
+    </div>
+</div>

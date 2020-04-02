@@ -1,0 +1,28 @@
+{% load static %}
+
+<div class="sidebar" data-color="white" data-active-color="danger">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+    -->
+      <div class="logo">
+        <a href="/" class="simple-text logo-mini">
+        </a>
+        <a href="{% url 'notes:home' %}" class="simple-text logo-normal">
+         Note Demo
+          <!-- <div class="logo-image-big">
+            <img src="../assets/img/logo-big.png">
+          </div> -->
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li>
+            <a href="{% url 'notes:home' %}">
+              <i class="nc-icon nc-user-run"></i>
+              <p>Notes</p>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
